@@ -1,0 +1,26 @@
+https://www.youtube.com/watch?v=4PrpRCTxcno
+
+npx create-react-app google-maps-project
+cd my-app
+npm start
+.................................................
+ Get Started on Google Maps Platform
+
+You're all set to develop! Here's the API key you would need for your implementation. API key can be referenced in the Credentials section. 
+
+AIzaSyDFSgPg1Y52_-K0T_pQ8EMrUVCuMY2nTZU
+.......................................................
+
+API key created
+
+Use this key in your application by passing it with the key=API_KEY parameter.
+Your API key
+
+Your API Key is limited to Google Maps Platform APIs and services. To set specific restrictions for your key, visit the Edit API key page. 
+
+AIzaSyCFNrHa6KgsYLPmpsBtX8L_K60IXujIr2g
+.......................................................
+
+
+-----------------------------------------------------
+00 : 07 : 56
