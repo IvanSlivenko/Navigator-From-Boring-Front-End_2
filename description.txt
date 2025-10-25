@@ -22,5 +22,15 @@ AIzaSyCFNrHa6KgsYLPmpsBtX8L_K60IXujIr2g
 .......................................................
 
 
+
+yarn add @react-google-maps/api
+
+
+yarn add use-places-autocomplete@1.4.0
+
+yarn add react-cool-onclickoutside
+
+
+
 -----------------------------------------------------
-00 : 07 : 56
+00 : 12 : 24
