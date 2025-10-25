@@ -1,10 +1,24 @@
 import React from "react";
-import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
+import { GoogleMap } from "@react-google-maps/api";
 import s from "./Map.module.css";
 
 const containerStyle = {
   width: "100%",
   height: "100%",
+};
+
+const defaultOptions = {
+  panControl: true,
+  zoomControl: true,
+  mapTypeControl: false,
+  scaleControl: false,
+  stritViewControl: false,
+  rotateControl: false,
+  clickableIcons: false,
+  keyboardShortcuts: false,
+  scrollwheel: false,
+  disableDoubleClickZoom: false,
+  fullscreenControl: false,
 };
 
 const Map = ({ center }) => {
@@ -26,6 +40,7 @@ const Map = ({ center }) => {
         zoom={10}
         onLoad={onLoad}
         onUnmount={onUnmount}
+        options={defaultOptions}
       >
         {/* Child components, such as markers, info windows, etc. */}
         <></>
