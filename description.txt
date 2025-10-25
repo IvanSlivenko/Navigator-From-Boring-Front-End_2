@@ -31,6 +31,9 @@ yarn add use-places-autocomplete@1.4.0
 yarn add react-cool-onclickoutside
 
 
+==================================================================== react-google-maps/api
+https://www.npmjs.com/package/@react-google-maps/api
+
 
 -----------------------------------------------------
-00 : 12 : 24
+00 : 22 : 19
