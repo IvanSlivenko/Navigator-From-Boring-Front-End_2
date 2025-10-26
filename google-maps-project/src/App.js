@@ -1,10 +1,15 @@
-import { Map } from './components/Map'
-import './App.css';
+import { useJsApiLoader } from '@react-google-maps/api';
 
-import { useJsApiLoader } from '@react-google-maps/api'
+import { Map } from './components/Map';
+import { Autocomplete, AutocompleteTwo } from './components/Autokomplete';
+
+
+
+
+import s from './App.module.css';
 
 const API_KEY = process.env.REACT_APP_API_KEY
-console.log("API_KEY", API_KEY)
+// console.log("API_KEY", API_KEY)
 
 const defaultCenter = {
   // lat: -3.745,
@@ -25,12 +30,21 @@ const App = () => {
     googleMapsApiKey: API_KEY,
     libraries
   })
-
+  if (!isLoaded) return <div>Loading map...</div>;
   return (
-    <div className="App">
-      {isLoaded ? <Map center={defaultCenter} /> : <h2>Loading</h2>}
 
+
+    <div>
+      <div className={s.adressSearchContainer}>
+        {/* <Autocomplete isLoaded={isLoaded} /> */}
+        <AutocompleteTwo isLoaded={isLoaded} />
+      </div>
+
+      {/* {isLoaded ? <Map center={defaultCenter} /> : <h2>Loading...</h2>} */}
+      <Map center={defaultCenter} />
     </div>
+
+
   );
 }
 

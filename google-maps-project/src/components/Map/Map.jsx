@@ -23,7 +23,7 @@ const defaultOptions = {
   styles: defaultTheme,
 };
 
-const Map = ({ center }) => {
+const Map = ({ center, isLoaded }) => {
   const mapRef = React.useRef(undefined);
 
   const onLoad = React.useCallback(function callback(map) {
