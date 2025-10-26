@@ -1,7 +1,8 @@
 import { useJsApiLoader } from '@react-google-maps/api';
 
 import { Map } from './components/Map';
-import { Autocomplete, AutocompleteTwo } from './components/Autokomplete';
+// import { Autocomplete } from './components/Autokomplete';
+import { AutocompleteTwo } from './components/Autokomplete';
 
 
 

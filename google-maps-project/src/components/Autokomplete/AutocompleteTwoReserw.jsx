@@ -17,6 +17,8 @@ export const AutocompleteTwo = ({ isLoaded }) => {
         setSuggestions([]);
         return;
       }
+
+      // Новий метод AutocompleteSuggestion
       service.getPlacePredictions({ input }, (predictions, status) => {
         if (status === window.google.maps.places.PlacesServiceStatus.OK) {
           setSuggestions(predictions || []);
@@ -26,28 +28,31 @@ export const AutocompleteTwo = ({ isLoaded }) => {
       });
     };
 
-    const inputEl = inputRef.current;
-    const handleInputEvent = (e) => {
+    inputRef.current.oninput = (e) => {
       const text = e.target.value;
       setValue(text);
       fetchSuggestions(text);
     };
-
-    inputEl.addEventListener("input", handleInputEvent);
-    return () => inputEl.removeEventListener("input", handleInputEvent);
   }, [isLoaded]);
 
-  const handleSelect = (description, placeId) => {
+  const handleSelect = (placeId, description) => {
     setValue(description);
     setSuggestions([]);
 
     const geocoder = new window.google.maps.Geocoder();
-    geocoder.geocode({ address: description }, (results, status) => {
+    geocoder.geocode({ placeId }, (results, status) => {
       if (status === "OK" && results[0]) {
-        const loc = results[0].geometry.location;
-        console.log("📍 Coordinates:", { lat: loc.lat(), lng: loc.lng() });
+        const location = results[0].geometry.location;
+        console.log("📍 Coordinates:", {
+          lat: location.lat(),
+          lng: location.lng(),
+        });
       }
     });
+  };
+
+  const handleInput = (e) => {
+    setValue(e.target.value);
   };
 
   return (
@@ -57,7 +62,7 @@ export const AutocompleteTwo = ({ isLoaded }) => {
         className={s.input}
         placeholder="Where are you going?"
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={handleInput}
         ref={inputRef}
         disabled={!isLoaded}
       />
@@ -66,8 +71,8 @@ export const AutocompleteTwo = ({ isLoaded }) => {
           {suggestions.map((sug) => (
             <li
               key={sug.place_id}
+              onClick={() => handleSelect(sug.place_id, sug.description)}
               className={s.listItem}
-              onClick={() => handleSelect(sug.description, sug.place_id)}
             >
               {sug.description}
             </li>
