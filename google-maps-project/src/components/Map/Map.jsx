@@ -1,6 +1,7 @@
 import React from "react";
 import { GoogleMap } from "@react-google-maps/api";
 import s from "./Map.module.css";
+import { defaultTheme } from "./Theme";
 
 const containerStyle = {
   width: "100%",
@@ -19,6 +20,7 @@ const defaultOptions = {
   scrollwheel: false,
   disableDoubleClickZoom: false,
   fullscreenControl: false,
+  styles: defaultTheme,
 };
 
 const Map = ({ center }) => {

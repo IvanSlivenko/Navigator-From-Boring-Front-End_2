@@ -35,5 +35,10 @@ yarn add react-cool-onclickoutside
 https://www.npmjs.com/package/@react-google-maps/api
 
 
+==================================================================== snazzymaps.com
+https://snazzymaps.com/
+https://snazzymaps.com/style/15/subtle-grayscale
+
+
 -----------------------------------------------------
-00 : 26 : 12
+00 : 29 : 17
