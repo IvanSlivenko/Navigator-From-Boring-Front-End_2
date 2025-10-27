@@ -1,3 +1,4 @@
+import React from 'react';
 import { useJsApiLoader } from '@react-google-maps/api';
 
 import { Map } from './components/Map';
@@ -26,23 +27,35 @@ const libraries = ['places']
 
 const App = () => {
 
+  const [center, setCenter] = React.useState(defaultCenter);
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: API_KEY,
     libraries
   })
+
+
+  const onPlaceSelect = React.useCallback(
+    (coordinates) => {
+      setCenter(coordinates)
+    },
+    [],
+  )
+
   if (!isLoaded) return <div>Loading map...</div>;
+
   return (
 
 
     <div>
       <div className={s.adressSearchContainer}>
         {/* <Autocomplete isLoaded={isLoaded} /> */}
-        <AutocompleteTwo isLoaded={isLoaded} />
+        <AutocompleteTwo isLoaded={isLoaded} onSelect={onPlaceSelect} />
+        <button className={s.modeToggle}>Set markers</button>
       </div>
 
       {/* {isLoaded ? <Map center={defaultCenter} /> : <h2>Loading...</h2>} */}
-      <Map center={defaultCenter} />
+      <Map center={center} />
     </div>
 
 

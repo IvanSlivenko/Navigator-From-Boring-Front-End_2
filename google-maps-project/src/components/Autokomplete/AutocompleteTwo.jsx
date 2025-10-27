@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import s from "./Autocomplete.module.css";
 
-export const AutocompleteTwo = ({ isLoaded }) => {
+export const AutocompleteTwo = ({ isLoaded, onSelect }) => {
   const [suggestions, setSuggestions] = useState([]);
   const [value, setValue] = useState("");
   const inputRef = useRef(null);
@@ -45,7 +45,13 @@ export const AutocompleteTwo = ({ isLoaded }) => {
     geocoder.geocode({ address: description }, (results, status) => {
       if (status === "OK" && results[0]) {
         const loc = results[0].geometry.location;
+
+        const lat = loc.lat();
+        const lng = loc.lng();
+
+        console.log(description);
         console.log("📍 Coordinates:", { lat: loc.lat(), lng: loc.lng() });
+        onSelect({ lat, lng });
       }
     });
   };
