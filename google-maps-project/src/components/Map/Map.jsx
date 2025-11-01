@@ -24,7 +24,7 @@ const defaultOptions = {
   styles: defaultTheme,
 };
 
-const Map = ({ center, isLoaded }) => {
+const Map = ({ center, isLoaded, mode }) => {
   const mapRef = React.useRef(undefined);
 
   const onLoad = React.useCallback(function callback(map) {
@@ -34,6 +34,8 @@ const Map = ({ center, isLoaded }) => {
   const onUnmount = React.useCallback(function callback(map) {
     mapRef.current = undefined;
   }, []);
+
+  const onClick = () => {};
 
   return (
     <div className={s.container}>

@@ -22,12 +22,18 @@ const defaultCenter = {
 }
 
 
+const MODES = {
+  MOVE: 0,
+  SET_MARKER: 1,
+
+}
 
 const libraries = ['places']
 
 const App = () => {
 
   const [center, setCenter] = React.useState(defaultCenter);
+  const [mode, setMode] = React.useState(MODES.MOVE);
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: API_KEY,
@@ -55,7 +61,7 @@ const App = () => {
       </div>
 
       {/* {isLoaded ? <Map center={defaultCenter} /> : <h2>Loading...</h2>} */}
-      <Map center={center} />
+      <Map center={center} mode={mode} />
     </div>
 
 

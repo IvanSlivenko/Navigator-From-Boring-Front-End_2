@@ -43,5 +43,10 @@ https://snazzymaps.com/style/15/subtle-grayscale
 https://github.com/wellyshen/use-places-autocomplete
 
 
+
+================================================================= svg location
+https://www.reshot.com/free-svg-icons/location/
+
+
 -----------------------------------------------------
-00 : 59 : 51
+01 : 03 : 45

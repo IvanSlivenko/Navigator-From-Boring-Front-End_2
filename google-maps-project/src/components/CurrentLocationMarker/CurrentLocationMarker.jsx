@@ -7,9 +7,10 @@ export const CurrentLocationMarker = ({ position }) => {
       position={position}
       icon={{
         url: "/map-marker.svg",
-        scaledSize: new window.google.maps.Size(10, 10),
+        // url: "/icon-location.svg",
+        scaledSize: new window.google.maps.Size(30, 30),
       }}
-      label={{ text: "|", fontSize: "55px", color: "orange" }}
+      // label={{ text: " ", fontSize: "55px", color: "orange" }}
     />
   );
 };
